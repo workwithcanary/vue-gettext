@@ -6,7 +6,7 @@ import Config from './config'
 import interpolate from './interpolate'
 import Override from './override'
 import translate from './translate'
-import { shareVueInstance } from './localVue'
+import {shareVueInstance} from './localVue'
 
 
 let languageVm  // Singleton.
@@ -15,7 +15,7 @@ let GetTextPlugin = function (Vue, options = {}) {
 
   let defaultConfig = {
     autoAddKeyAttributes: false,
-    availableLanguages: { en_US: 'English' },
+    availableLanguages: {en_US: 'English'},
     defaultLanguage: 'en_US',
     languageVmMixin: {},
     muteLanguages: [],
@@ -68,7 +68,7 @@ let GetTextPlugin = function (Vue, options = {}) {
   Vue.prototype.$ngettext = translate.ngettext.bind(translate)
   Vue.prototype.$npgettext = translate.npgettext.bind(translate)
   Vue.prototype.$gettextInterpolate = interpolate.bind(interpolate)
-
+  Vue.prototype.$translate = translate
 }
 
 export default GetTextPlugin
